@@ -49,7 +49,7 @@ def get_fruit_road_list():
        return my_cur.fetchall()
 
 #Add button to load the fruit
-if streamlit.button(get_fruit_road_list):
+if streamlit.button('Get Fruit Road List'):
   my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
   my_data_rows = get_fruit_road_list()
   streamlit.dataframe(my_data_rows)
