@@ -42,14 +42,14 @@ try:
 except URLError as e:
   streamlit.error()
 
-streamlit.header("The fruit road list contains:")
+streamlit.header("View Our Fruit List - Add Your Favourites!")
 def get_fruit_road_list():
   with my_cnx.cursor() as my_cur:
        my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
        return my_cur.fetchall()
 
 #Add button to load the fruit
-if streamlit.button('Get Fruit Road List'):
+if streamlit.button('Get Fruit List'):
   my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
   my_data_rows = get_fruit_road_list()
   my_cnx.close()
