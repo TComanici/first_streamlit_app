@@ -52,6 +52,7 @@ def get_fruit_road_list():
 if streamlit.button('Get Fruit Road List'):
   my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
   my_data_rows = get_fruit_road_list()
+  my_cnx.close()
   streamlit.dataframe(my_data_rows)
 
 #Allow user to add fruit
